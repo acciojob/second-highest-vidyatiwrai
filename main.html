@@ -9,33 +9,17 @@
 <body>	
 	<script>
 		function secondHighest(arr) {
-			//Write your code here
-  let max = -Infinity, result = -Infinity;
-
-  for (const value of arr) {
-    const nr = Number(value)
-
-    if (nr > max) {
-      [result, max] = [max, nr] // save previous max
-    } else if (nr < max && nr > result) {
-      result = nr; // new second biggest
-    }
-  }
-
-  return result;
+let first = -Infinity, second = -Infinity;
+for (let i = 0; i < arr.length; i++) {
+if (arr[i] > first) {
+second = first;
+first = arr[i];
+} else if (arr[i] > second && arr[i] < first) {
+second = arr[i];
 }
-		console.log(secondHighest(arr));
-		
-
-		function Main() {
-			var n = prompt("Enter the number of elements");
-			var arr = [];
-			for (var i = 0; i < n; i++) {
-				arr[i] = prompt("Enter element " + (i+1));
-			}
-			alert(secondHighest(arr));
-		}
-		Main();
+}
+return second;
+}
 	</script>
 
     <script type="text/javascript" src="./script.js">
